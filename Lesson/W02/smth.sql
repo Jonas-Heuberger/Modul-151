@@ -1,6 +1,6 @@
-CREATE USER 'W02_user'@'localhost' IDENTIFIED by 'password';
+CREATE USER 'JonasHeuberger'@'localhost' IDENTIFIED by 'Password';
 
-GRANT SELECT, UPDATE, INSERT, DELETE ON W02.* TO 'W02_user'@'localhost';
+GRANT SELECT, UPDATE, INSERT, DELETE ON W02.* TO 'JonasHeuberger'@'localhost';
 
 FLUSH PRIVILEGES;
 

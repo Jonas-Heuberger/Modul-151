@@ -1,6 +1,10 @@
-<?php
 
+<?php
 // TODO: Verbindung zur Datenbank einbinden
+
+include('include/ W02_user_dbconnector.php')
+
+
 
 
 $error = '';

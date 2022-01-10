@@ -1,9 +1,7 @@
-CREATE USER 'JonasHeuberger'@'localhost' IDENTIFIED by 'Password';
+CREATE USER 'JonasH'@'localhost' IDENTIFIED by 'Password';
 
-GRANT SELECT, UPDATE, INSERT, DELETE ON W02.* TO 'JonasHeuberger'@'localhost';
+GRANT SELECT, UPDATE, INSERT, DELETE ON W02.* TO 'JonasH'@'localhost';
 
 FLUSH PRIVILEGES;
 
-SELECT user FROM mysql.user
-
-	
+SELECT user FROM mysql.user;

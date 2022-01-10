@@ -1,7 +1,7 @@
 <?php
 		$host     = 'localhost'; // host
-		$username = 'Jonas'; // username
-		$password = 'Password'; // Passwort (brauchen Sie nie dieses Passwort, ich erkläre später warum)
+		$username = 'JonasH'; // username
+		$password = 'Password'; // Passwort 
 		$database = 'W02'; // database
 		
 		// mit Datenbank verbinden

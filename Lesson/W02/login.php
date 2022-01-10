@@ -39,9 +39,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && empty($error)){
 	if(empty($error)){
 
         // TODO SELECT Query erstellen, user und passwort mit Datenbank vergleichen
+		$query = "SELECT username, password from users where username = ?";
+
         // TODO prepare()
+		$stmt = $mysqli->prepare($query);
+		if($stmt===false){
+			$error .= 'prepare() failed '. $mysqli->error . '<br />';
+		}
+
 		// TODO bind_param()
+		if(!$stmt->bind_param("s", $username)){
+			$error .= 'bind_param() failed '. $mysqli->error . '<br />';
+		}
+
 		// TODO execute()
+		if(!$stmt->execute()){
+			$error .= 'execute() failed '. $mysqli->error . '<br />';
+		}
+
 		// TODO Passwort auslesen und mit dem eingegeben Passwort vergleichen
 		// TODO wenn Passwort korrekt:  $message .= "Sie sind nun eingeloggt"; 
 		// TODO wenn Passwort falsch, oder kein Benutzer mit diesem Benutzernamem in DB: $error .= "Benutzername oder Passwort sind falsch";

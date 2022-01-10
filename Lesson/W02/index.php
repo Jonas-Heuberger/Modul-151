@@ -1,7 +1,6 @@
 <?php
 
 // TODO: Verbindung zur Datenbank einbinden
-
 include('include/Jonas_dbconnector.php');
 
 // Initialisierung
@@ -71,12 +70,31 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
   // wenn kein Fehler vorhanden ist, schreiben der Daten in die Datenbank
   if(empty($error)){
+	  
     // TODO: INPUT Query erstellen, welches firstname, lastname, username, password, email in die Datenbank schreibt
+	$query = "Insert into users (firstname, lastname, username, password, email) values (?,?,?,?,?)";
+
     // TODO: Query vorbereiten mit prepare();
+	$stmt = $mysqli->prepare($query);
+    if($stmt===false){
+      $error .= 'prepare() failed '. $mysqli->error . '<br />';
+    }
+
     // TODO: Parameter an Query binden mit bind_param();
+	if(!$stmt->bind_param('sssss', $firstname, $lastname, $username, $password, $email)){
+		$error .= 'bind_param() failed '. $mysqli->error . '<br />';
+	  }
+
     // TODO: Query ausführen mit execute();
+	if(!$stmt->execute()){
+		$error .= 'execute() failed '. $mysqli->error . '<br />';
+	  }
+
     // TODO: Verbindung schliessen
+	$mysqli->close();
+
     // TODO: Weiterleitung auf login.php
+	header('Location: login.php');
   }
 }
 

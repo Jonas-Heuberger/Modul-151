@@ -1,9 +1,9 @@
 <?php
 
-$host = 'localhost';
-$database = 'PHPSQLTEST';
-$username = 'newUser';
-$password = 'newUserTestPassword';
+        $host = 'localhost'; // host
+		$username = 'JonasH'; // username
+		$password = 'Password'; // Passwort 
+		$database = 'W02'; // database
 
 // mit datenbank verbinden
 $mysqli = new mysqli($host, $username, $password, $database);

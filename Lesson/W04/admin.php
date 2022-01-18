@@ -20,7 +20,7 @@ if(isset($_SESSION['username']) && !empty($_SESSION['loggedin'])){
 $username = $_SESSION['username'];
 
  echo "<h1>Guten Tag $username</h1>";
- echo "<h1>Das ist eine Session ja.</h1>";
+ echo "<h1>Das ist eine Session jaa.</h1>";
 
  echo "<h3><a href='logout.php' class='btn btn-link'>Log Out</a></h3>";
  //echo "<h3><a href'logout.php' class='btn btn-link' role='button'>Logout</a> <!-- Button link --></h3>";

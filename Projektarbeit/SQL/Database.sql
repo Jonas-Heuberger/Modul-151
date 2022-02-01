@@ -1,0 +1,57 @@
+CREATE DATABASE todoDatabase;
+
+USE todoDatabase;
+
+CREATE TABLE Users (
+	idUsers INT primary key auto_increment not null,
+	username varchar(45) not null,
+	firstname varchar(45) not null,
+	lastname varchar(45) not null,
+	password varchar(45) not null
+);
+
+CREATE TABLE Kategorien (
+	idKategorien INT primary key auto_increment not null,
+	name varchar(45) not null
+);
+
+CREATE TABLE Todos(
+	idTodos INT primary key auto_increment not null,
+	prioritaet TINYINT(3) not null,
+	kategorie varchar(45) not null,
+	was varchar(45) not null,
+	erstellt DATETIME not null,
+	faellig DATETIME not null,
+	status TINYINT(100) not null,
+	archiv TINYINT(1) not null,
+	Users_idUsers INT NOT NULL,
+  	Kategorien_idKategorien INT NOT NULL,
+	  
+CONSTRAINT fk_ Todos_Users1
+    FOREIGN KEY (Users_idUsers)
+    REFERENCES todoDatabase.Users (idUsers)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+CONSTRAINT fk_ Todos_Kategorien1
+    FOREIGN KEY (Kategorien_idKategorien)
+    REFERENCES todoDatabase.Kategorien (idKategorien)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+);
+
+CREATE TABLE Users_has_Kategorien (
+  Users_idUsers INT NOT NULL,
+  Kategorien_idKategorien INT NOT NULL,
+  PRIMARY KEY (Users_idUsers, Kategorien_idKategorien),
+  CONSTRAINT fk_Users_has_Kategorien_Users1
+    FOREIGN KEY (Users_idUsers)
+    REFERENCES mydb.Users (idUsers)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT fk_Users_has_Kategorien_Kategorien1
+    FOREIGN KEY (Kategorien_idKategorien)
+    REFERENCES mydb.Kategorien (idKategorien)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+	);
+

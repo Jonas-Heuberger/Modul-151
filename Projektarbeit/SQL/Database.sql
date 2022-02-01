@@ -26,7 +26,7 @@ CREATE TABLE Todos(
 	archiv TINYINT(1) not null,
 	Users_idUsers INT NOT NULL,
   	Kategorien_idKategorien INT NOT NULL,
-	  
+
 CONSTRAINT fk_ Todos_Users1
     FOREIGN KEY (Users_idUsers)
     REFERENCES todoDatabase.Users (idUsers)
@@ -55,3 +55,46 @@ CREATE TABLE Users_has_Kategorien (
     ON UPDATE NO ACTION
 	);
 
+
+
+CREATE TABLE IF NOT EXISTS Todos(
+  id Todos INT NOT NULL AUTO_INCREMENT,
+  prioritaet TINYINT(3) NOT NULL,
+  kategorie VARCHAR(255) NOT NULL,
+  was VARCHAR(45) NOT NULL,
+  erstellt DATETIME NOT NULL,
+  faellig DATETIME NOT NULL,
+  status TINYINT(100) NOT NULL,
+  archiv TINYINT(1) NOT NULL,
+  Users_idUsers INT NOT NULL,
+  Kategorien_idKategorien INT NOT NULL,
+  PRIMARY KEY (id Todos),
+  CONSTRAINT fk_ Todos_Users1
+    FOREIGN KEY (Users_idUsers)
+    REFERENCES todoDatabase.Users (idUsers)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT fk_ Todos_Kategorien1
+    FOREIGN KEY (Kategorien_idKategorien)
+    REFERENCES todoDatabase.Kategorien (idKategorien)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+	);
+
+
+
+CREATE TABLE IF NOT EXISTS todoDatabase.Users_has_Kategorien (
+  Users_idUsers INT NOT NULL,
+  Kategorien_idKategorien INT NOT NULL,
+  PRIMARY KEY (Users_idUsers, Kategorien_idKategorien),
+  CONSTRAINT fk_Users_has_Kategorien_Users1
+    FOREIGN KEY (Users_idUsers)
+    REFERENCES todoDatabase.Users (idUsers)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT fk_Users_has_Kategorien_Kategorien1
+    FOREIGN KEY (Kategorien_idKategorien)
+    REFERENCES todoDatabase.Kategorien (idKategorien)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+	);

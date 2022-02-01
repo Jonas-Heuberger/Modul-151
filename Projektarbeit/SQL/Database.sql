@@ -98,3 +98,10 @@ CREATE TABLE IF NOT EXISTS todoDatabase.Users_has_Kategorien (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION
 	);
+
+	CREATE USER Administrator @ 'localhost' IDENTIFIED BY 'c2Q`(_FV9vL}Bx)d';
+		GRANT ALL PRIVILEGES ON todoDatabase . * TO 'Administrator'@'localhost';
+	
+	CREATE USER Benutzer @'localhost' IDENTIFIED BY '\(7/ep9~=?HmU8BH';
+		GRANT ON todoDatabase. TO 'Benutzer'@'localhost';
+                        

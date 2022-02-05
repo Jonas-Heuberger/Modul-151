@@ -17,11 +17,12 @@
 - login.php
 ##### Include
 - Administrator_dbconnector.inc.php
-- Benutzer_dbconnector.inc.php
 #### MySQL
 - todoDatabase.sql
 #### CSS
 - style.css
+#### Style
+- Bootstrap
 #### ERM
 - M151_ERM_Jonas_Heuberger.pdf
 #### Arbeitsjournal

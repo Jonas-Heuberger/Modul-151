@@ -14,6 +14,7 @@
 - home.php
 - create.php 
 - edit.php
+- login.php
 ##### Include
 - Administrator_dbconnector.inc.php
 - Benutzer_dbconnector.inc.php
@@ -25,3 +26,12 @@
 - M151_ERM_Jonas_Heuberger.pdf
 #### Arbeitsjournal
 - M151_Arbeitsjournal_Jonas_Heuberger.docx
+
+### Tasks
+- Task Management System
+- Bootstrap Designes verwenden
+- Datenbank um alle Tasks zu speicher
+- Formular für User Input
+
+### DB User
+- Administrator

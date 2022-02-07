@@ -114,4 +114,6 @@ CREATE TABLE IF NOT EXISTS todoDatabase.Users_has_Kategorien (
     ALTER TABLE Users ADD COLUMN role TINYINT(1) NOT NULL;
 
     ALTER TABLE Users ALTER role SET DEFAULT 0;
+
+    DELETE FROM Users;
                         

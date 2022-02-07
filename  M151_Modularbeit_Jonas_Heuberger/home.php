@@ -78,6 +78,18 @@ session_start();
   </div><!-- /.container-fluid -->
 </nav>
 
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading"> Tasks</div>
+
+
+  <!-- Table -->
+  <table class="table">
+    
+  </table>
+</div>
+
+
 	
 
 <!-- Latest compiled and minified JavaScript -->

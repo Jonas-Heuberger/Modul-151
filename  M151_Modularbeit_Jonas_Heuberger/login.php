@@ -55,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && empty($error)){
 		if($result->num_rows){
 			// userdaten lesen
 			$row = $result->fetch_assoc();
-			// passwort pr�fen
+			// passwort prüfen
 			if(password_verify($password, $row['password'])){
 				$message .= "Sie sind nun eingeloggt";
 				session_start();

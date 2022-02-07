@@ -1,6 +1,7 @@
 # Style
 
 ## Bootstrap
+- Brand image
 - 
 
 ## Font

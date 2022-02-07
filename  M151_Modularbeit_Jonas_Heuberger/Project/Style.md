@@ -1,7 +1,7 @@
 # Style
 
 ## Bootstrap
-- Brand image
+- Default navbar
 - 
 
 ## Font

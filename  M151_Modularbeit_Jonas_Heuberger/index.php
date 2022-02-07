@@ -66,26 +66,26 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     //firstname, lastname, username, password
     $query = "Insert into users (firstname, lastname, username, password) values (?,?,?,?)";
     // query vorbereiten
-    $stmt = $mysqli->prepare($query);
+    $stmt = $conn->prepare($query);
     if($stmt===false){
-      $error .= 'prepare() failed '. $mysqli->error . '<br />';
+      $error .= 'prepare() failed '. $conn->error . '<br />';
     }
     // parameter an query binden
     if(!$stmt->bind_param('ssss', $firstname, $lastname, $username, $hashedPassword)){
-      $error .= 'bind_param() failed '. $mysqli->error . '<br />';
-	}
+      $error .= 'bind_param() failed '. $conn->error . '<br />';
+    }
 
     // query ausführen
     if(!$stmt->execute()){
-      $error .= 'execute() failed '. $mysqli->error . '<br />';
+      $error .= 'execute() failed '. $conn->error . '<br />';
     }
     // kein Fehler!
     if(empty($error)){
       $message .= "Die Daten wurden erfolgreich in die Datenbank geschrieben<br/ >";
       // felder leeren > oder weiterleitung auf anderes script: z.B. Login!
-      $username = $hashedPassword = $firstname = $lastname  =  '';
+      $username = $hashedPassword = $firstname = $lastname =  '';
       // verbindung schliessen
-      $mysqli->close();
+      $conn->close();
       // weiterleiten auf login formular
       header('Location: login.php');
     }

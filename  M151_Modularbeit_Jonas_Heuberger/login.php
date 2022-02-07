@@ -14,8 +14,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && empty($error)){
 
 		$username = trim($_POST['username']);
 		
-		// pr�fung Benutzername
-		if(!preg_match("/(?=.*[a-z])(?=.*[A-Z])[a-zA-Z]{,}/", $username) || strlen($username) > 30){
+		// prüfung Benutzername
+		if(!preg_match("/(?=.*[a-z])(?=.*[A-Z])[a-zA-Z]{6,}/", $username) || strlen($username) > 30){
 			$error .= "Der Benutzername entspricht nicht dem geforderten Format.<br />";
 		}
 	}else{
@@ -37,17 +37,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && empty($error)){
 		// query
 		$query = "SELECT username, password from users where username = ?";
 		// query vorbereiten
-		$stmt = $mysqli->prepare($query);
+		$stmt = $conn->prepare($query);
 		if($stmt===false){
-			$error .= 'prepare() failed '. $mysqli->error . '<br />';
+			$error .= 'prepare() failed '. $conn->error . '<br />';
 		}
 		// parameter an query binden
 		if(!$stmt->bind_param("s", $username)){
-			$error .= 'bind_param() failed '. $mysqli->error . '<br />';
+			$error .= 'bind_param() failed '. $conn->error . '<br />';
 		}
-		// query ausf�hren
+		// query ausführen
 		if(!$stmt->execute()){
-			$error .= 'execute() failed '. $mysqli->error . '<br />';
+			$error .= 'execute() failed '. $conn->error . '<br />';
 		}
 		// daten auslesen
 		$result = $stmt->get_result();

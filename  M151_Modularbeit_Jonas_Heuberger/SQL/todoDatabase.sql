@@ -106,4 +106,12 @@ CREATE TABLE IF NOT EXISTS todoDatabase.Users_has_Kategorien (
 		GRANT ON todoDatabase. TO 'Benutzer'@'localhost';
 
     FLUSH PRIVILEGES;
+
+    ALTER TABLE Users DROP COLUMN password;
+    ALTER TABLE Users ADD COLUMN password VARCHAR(255) NOT NULL ;
+
+    ALTER TABLE Users DROP COLUMN role;
+    ALTER TABLE Users ADD COLUMN role TINYINT(1) NOT NULL;
+
+    ALTER TABLE Users ALTER role SET DEFAULT 0;
                         

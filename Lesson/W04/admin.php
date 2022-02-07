@@ -1,3 +1,20 @@
+<?php
+session_start();
+
+if(isset($_SESSION['username']) && !empty($_SESSION['loggedIn'])){
+$username = $_SESSION['username'];
+
+ echo "<h1>Guten Tag $username</h1>";
+ echo "<h1>Das ist eine Session jaa.</h1>";
+
+ echo "<h3><a href='logout.php' class='btn btn-link'>Log Out</a></h3>";
+ //echo "<h3><a href'logout.php' class='btn btn-link' role='button'>Logout</a> <!-- Button link --></h3>";
+}else{
+    echo "<h1>Ihre Session ist abgelaufen. Sie sind erfolgreich ausgeloggt</h1>";
+    echo "<h3><a href='login.php' class='btn btn-link'>Log In</a> <a href='index.php' class='btn btn-link'>New Account</a></h3>";
+}
+?>
+
 <!DOCTYPE html>
 
 <html>
@@ -13,19 +30,3 @@
 </body>
 </html>
 
-<?php
-session_start();
-
-if(isset($_SESSION['username']) && !empty($_SESSION['loggedin'])){
-$username = $_SESSION['username'];
-
- echo "<h1>Guten Tag $username</h1>";
- echo "<h1>Das ist eine Session jaa.</h1>";
-
- echo "<h3><a href='logout.php' class='btn btn-link'>Log Out</a></h3>";
- //echo "<h3><a href'logout.php' class='btn btn-link' role='button'>Logout</a> <!-- Button link --></h3>";
-}else{
-    echo "<h1>Ihre Session ist abgelaufen. Sie sind erfolgreich ausgeloggt</h1>";
-    echo "<h3><a href='login.php' class='btn btn-link'>Log In</a> <a href='index.php' class='btn btn-link'>New Account</a></h3>";
-}
-?>

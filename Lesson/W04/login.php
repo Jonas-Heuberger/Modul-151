@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && empty($error)){
 				session_start();
 				session_regenerate_id();
 				$_SESSION['username'] = $username;
-				$_SESSION['loggedin'] = true;
+				$_SESSION['loggedIn'] = true;
 				header('Location: admin.php');
 			// benutzername oder passwort stimmen nicht,
 			}else{

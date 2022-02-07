@@ -2,7 +2,7 @@
 
 //Datenbankverbindung
 include('Include/Administrator_dbconnector.inc.php');
-//include('Include/Benutzer_dbconnector.inc.php');
+
 
 $error = '';
 $message = '';
@@ -14,8 +14,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && empty($error)){
 
 		$username = trim($_POST['username']);
 		
-		// pr�fung benutzername
-		if(!preg_match("/(?=.*[a-z])(?=.*[A-Z])[a-zA-Z]{6,}/", $username) || strlen($username) > 30){
+		// pr�fung Benutzername
+		if(!preg_match("/(?=.*[a-z])(?=.*[A-Z])[a-zA-Z]{,}/", $username) || strlen($username) > 30){
 			$error .= "Der Benutzername entspricht nicht dem geforderten Format.<br />";
 		}
 	}else{
@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && empty($error)){
 	// password
 	if(!empty(trim($_POST['password']))){
 		$password = trim($_POST['password']);
-		// passwort g�ltig?
+		// passwort gültig?
 		if(!preg_match("/(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/", $password)){
 			$error .= "Das Passwort entspricht nicht dem geforderten Format.<br />";
 		}

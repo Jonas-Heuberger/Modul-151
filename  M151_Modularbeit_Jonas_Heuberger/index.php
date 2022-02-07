@@ -2,11 +2,10 @@
 
 //verbindung zur Datenbank Auslagern
 include('Include/Administrator_dbconnector.inc.php');
-//include('Include/Benutzer_dbconnector.inc.php');
 
 // Initialisierung
 $error = $message =  '';
-$firstname = $lastname = $email = $username = '';
+$username = $firstname = $lastname = '';
 
 // Wurden Daten mit "POST" gesendet?
 if($_SERVER['REQUEST_METHOD'] == "POST"){
@@ -33,17 +32,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     $error .= "Geben Sie bitte einen korrekten Nachnamen ein.<br />";
   }
 
-  // emailadresse vorhanden, mindestens 1 Zeichen und maximal 100 zeichen lang
-  if(isset($_POST['email']) && !empty(trim($_POST['email'])) && strlen(trim($_POST['email'])) <= 100){
-    $email = htmlspecialchars(trim($_POST['email']));
-    // korrekte emailadresse?
-    if (filter_var($email, FILTER_VALIDATE_EMAIL) === false){
-      $error .= "Geben Sie bitte eine korrekte Email-Adresse ein<br />";
-    }
-  } else {
-    // Ausgabe Fehlermeldung
-    $error .= "Geben Sie bitte eine korrekte Email-Adresse ein.<br />";
-  }
+ 
+  
 
   // benutzername vorhanden, mindestens 6 Zeichen und maximal 30 zeichen lang
   if(isset($_POST['username']) && !empty(trim($_POST['username'])) && strlen(trim($_POST['username'])) <= 30){
@@ -73,17 +63,17 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
   // wenn kein Fehler vorhanden ist, schreiben der Daten in die Datenbank
   if(empty($error)){
-    //firstname, lastname, username, password, email
-    $query = "Insert into users (firstname, lastname, username, password, email) values (?,?,?,?,?)";
+    //firstname, lastname, username, password
+    $query = "Insert into users (firstname, lastname, username, password) values (?,?,?,?)";
     // query vorbereiten
     $stmt = $mysqli->prepare($query);
     if($stmt===false){
       $error .= 'prepare() failed '. $mysqli->error . '<br />';
     }
     // parameter an query binden
-    if(!$stmt->bind_param('sssss', $firstname, $lastname, $username, $hashedPassword, $email)){
+    if(!$stmt->bind_param('ssss', $firstname, $lastname, $username, $hashedPassword)){
       $error .= 'bind_param() failed '. $mysqli->error . '<br />';
-    }
+	}
 
     // query ausführen
     if(!$stmt->execute()){
@@ -93,7 +83,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     if(empty($error)){
       $message .= "Die Daten wurden erfolgreich in die Datenbank geschrieben<br/ >";
       // felder leeren > oder weiterleitung auf anderes script: z.B. Login!
-      $username = $hashedPassword = $firstname = $lastname = $email =  '';
+      $username = $hashedPassword = $firstname = $lastname  =  '';
       // verbindung schliessen
       $mysqli->close();
       // weiterleiten auf login formular
@@ -156,15 +146,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                   maxlength="30"
                   required="true">
         </div>
-        <!-- email -->
-        <div class="form-group">
-          <label for="email">Email *</label>
-          <input type="email" name="email" class="form-control" id="email"
-                  value="<?php echo $email ?>"
-                  placeholder="Geben Sie Ihre Email-Adresse an."
-                  maxlength="100"
-                  required="true">
-        </div>
+        
         <!-- benutzername -->
         <div class="form-group">
           <label for="username">Benutzername *</label>

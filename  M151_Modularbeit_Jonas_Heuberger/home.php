@@ -83,11 +83,55 @@ session_start();
   <div class="panel-heading"> Tasks</div>
 
 
-  <!-- Table -->
   <table class="table">
-    
-  </table>
-</div>
+  <thead>
+		  
+		  
+		  
+		 
+		  
+		  
+		  
+	</thead>
+</table>
+
+<table class="table ">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Prioritaet</th>
+      <th scope="col">Kategorie</th>
+      <th scope="col">Aufgabe</th>
+	  <th scope="col">erstellt</th>
+	  <th scope="col">faellig</th>
+	  <th scope="col">status</th>
+	  <th scope="col">archiv</th>
+	  
+	  <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Sit</td>
+      <td>Amet</td>
+      <td>Consectetur</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Adipisicing</td>
+      <td>Elit</td>
+      <td>Sint</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Hic</td>
+      <td>Fugiat</td>
+      <td>Temporibus</td>
+    </tr>
+  </tbody>
+
+</table>
 
 
 	

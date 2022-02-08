@@ -61,7 +61,7 @@ CREATE TABLE IF NOT EXISTS Todos(
   id Todos INT NOT NULL AUTO_INCREMENT,
   prioritaet TINYINT(3) NOT NULL,
   kategorie VARCHAR(255) NOT NULL,
-  was VARCHAR(45) NOT NULL,
+  aufgabe VARCHAR(45) NOT NULL,
   erstellt DATETIME NOT NULL,
   faellig DATETIME NOT NULL,
   status TINYINT(100) NOT NULL,
@@ -69,17 +69,17 @@ CREATE TABLE IF NOT EXISTS Todos(
   Users_idUsers INT NOT NULL,
   Kategorien_idKategorien INT NOT NULL,
   PRIMARY KEY (id Todos),
+  
   CONSTRAINT fk_ Todos_Users1
     FOREIGN KEY (Users_idUsers)
-    REFERENCES todoDatabase.Users (idUsers)
+    REFERENCES Users (idUsers)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT fk_ Todos_Kategorien1
     FOREIGN KEY (Kategorien_idKategorien)
-    REFERENCES todoDatabase.Kategorien (idKategorien)
+    REFERENCES Kategorien (idKategorien)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION
-	);
+    ON UPDATE NO ACTION);
 
 
 
@@ -116,4 +116,13 @@ CREATE TABLE IF NOT EXISTS todoDatabase.Users_has_Kategorien (
     ALTER TABLE Users ALTER role SET DEFAULT 0;
 
     DELETE FROM Users;
+
+    ALTER TABLE Todos DROP COLUMN was;
+
+    ALTER TABLE Todos DROP COLUMN was;
+
+    ALTER TABLE Todos ADD COLUMN aufgabe VARCHAR(45) NOT NULL; 
+
+    Rename TABLE ' Todos' Rename 'Todos';
                         
+  

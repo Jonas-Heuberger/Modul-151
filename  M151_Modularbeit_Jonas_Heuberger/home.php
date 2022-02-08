@@ -81,17 +81,6 @@ session_start();
   <div class="panel-heading"> Tasks</div>
 
 
-  <table class="table">
-  <thead>
-		  
-		  
-		  
-		 
-		  
-		  
-		  
-	</thead>
-</table>
 
 <table class="table ">
   <thead>

@@ -46,6 +46,36 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     // Ausgabe Fehlermeldung
     $error .= "Geben Sie bitte einen korrekten Benutzernamen ein.<br />";
   }
+  
+
+
+                 
+  // kein fehler
+	if(empty($error)){
+		// query
+		$query = "SELECT username from users where username = ?";
+		// query vorbereiten
+		$stmt = $conn->prepare($query);
+		if($stmt===false){
+			$error .= 'prepare() failed '. $conn->error . '<br />';
+		}
+		// parameter an query binden
+		if(!$stmt->bind_param("s", $username)){
+			$error .= 'bind_param() failed '. $conn->error . '<br />';
+		}
+		// query ausführen
+		if(!$stmt->execute()){
+			$error .= 'execute() failed '. $conn->error . '<br />';
+		}
+		// daten auslesen
+		$result = $stmt->get_result();
+		// benutzer vorhanden
+		if($result->num_rows){
+		$error .= "Benutzername wird bereits verwendet";
+			}
+		}
+	
+
 
   // passwort vorhanden, mindestens 8 Zeichen
   if(isset($_POST['password']) && !empty(trim($_POST['password']))){
@@ -91,8 +121,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     }
 
   }
-}
 
+}
 ?>
 
 
@@ -153,7 +183,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                   placeholder="Gross- und Keinbuchstaben, min 6 Zeichen."
                   maxlength="30" required="true"
                   pattern="(?=.*[a-z])(?=.*[A-Z])[a-zA-Z]{6,}"
-                  title="Gross- und Keinbuchstaben, min 6 Zeichen.">
+                  title="Gross- und Keinbuchstaben, min 6 Zeichen." >
         </div>
         <!-- password -->
         <div class="form-group">

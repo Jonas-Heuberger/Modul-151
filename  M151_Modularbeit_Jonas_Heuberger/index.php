@@ -71,7 +71,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 		$result = $stmt->get_result();
 		// benutzer vorhanden
 		if($result->num_rows){
-		$error .= "Benutzername wird bereits verwendet";
+		$error .= "Ihr Benutzername entspricht nicht der korrekten Namenskonvention oder wird bereits verwendet";
 			}
 		}
 	

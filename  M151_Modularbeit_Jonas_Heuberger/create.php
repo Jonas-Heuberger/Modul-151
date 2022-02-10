@@ -41,7 +41,7 @@
 <br>
 <br>
 Kategorie
-<select class="form-control">
+<select>
   <option>1</option>
   <option>2</option>
   <option>3</option>
@@ -49,6 +49,16 @@ Kategorie
   <option>5</option>
 </select>
 
+<br>
+<br>
+
+<p>Wann muss die Aufgabe erledigt sein?</p>
+<input type="datetime" name="Datum" id="">
+
+<br>
+<br>
+
+<input type="submit" value="submit">
 </form>
 </div>
 

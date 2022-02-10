@@ -10,9 +10,9 @@ $username = $firstname = $lastname = '';
 // Wurden Daten mit "POST" gesendet?
 if($_SERVER['REQUEST_METHOD'] == "POST"){
   // Ausgabe des gesamten $_POST Arrays
-  echo "<pre>";
-  print_r($_POST);
-  echo "</pre>";
+  //echo "<pre>";
+  //print_r($_POST);
+  //echo "</pre>";
 
   // vorname vorhanden, mindestens 1 Zeichen und maximal 30 Zeichen lang
   if(isset($_POST['firstname']) && !empty(trim($_POST['firstname'])) && strlen(trim($_POST['firstname'])) <= 30){

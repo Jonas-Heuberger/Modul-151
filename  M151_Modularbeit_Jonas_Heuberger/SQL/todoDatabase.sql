@@ -124,5 +124,9 @@ CREATE TABLE IF NOT EXISTS todoDatabase.Users_has_Kategorien (
     ALTER TABLE Todos ADD COLUMN aufgabe VARCHAR(45) NOT NULL; 
 
     Rename TABLE ' Todos' Rename 'Todos';
+
+
+	ALTER TABLE Todos
+MODIFY COLUMN erstellt TIMESTAMP;
                         
   

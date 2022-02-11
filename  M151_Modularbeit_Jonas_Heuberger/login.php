@@ -127,7 +127,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && empty($error)){
 				</div>
 		  		<button type="submit" name="button" value="submit" class="btn btn-info">Submit</button>
 		  		<button type="reset" name="button" value="reset" class="btn btn-warning">Clear</button>
-					<a href="index.php" class="btn btn-link" role="button">Sign Up</a> <!-- Button link -->
+					<a href="index.php" class="btn btn-link" role="button">Registrieren</a> <!-- Button link -->
 			</form>
 		</div>
 

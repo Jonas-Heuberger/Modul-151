@@ -128,5 +128,8 @@ CREATE TABLE IF NOT EXISTS todoDatabase.Users_has_Kategorien (
 
 	ALTER TABLE Todos
 MODIFY COLUMN erstellt TIMESTAMP;
+
+ALTER TABLE Todos
+MODIFY COLUMN prioritaet TINYINT(5) NOT NULL;
                         
   

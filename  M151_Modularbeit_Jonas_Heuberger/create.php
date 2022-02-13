@@ -1,3 +1,26 @@
+<?php
+// Verbindung zur DB
+include('Include/Administrator_dbconnector.inc.php');
+
+// Initialisierung
+$error = $message =  '';
+$username = $firstname = $lastname = '';
+
+
+
+
+
+
+
+
+
+
+?>
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -19,47 +42,63 @@
 
 <!-- Navbar -->
 
+<div>
 <h1>Aufgabe</h1>
+</div>
 
 <div>
 <form action="" method="post">
 	<p>Aufgabe:</p>
 <textarea name="" id="" cols="50" rows="3"></textarea>
-<br>
-<br>
+</div>
 
-<p>Priorität</p>
-<label class="radio-inline">
-  <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 1
-</label>
-<label class="radio-inline">
-  <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 2
-</label>
-<label class="radio-inline">
-  <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 3
-</label>
+<div>
+<p>Priorität:</p>
+	<label class="radio-inline">
+  		<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 1
+	</label>
+	<label class="radio-inline">
+  		<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 2
+	</label>
+	<label class="radio-inline">
+  		<input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 3
+	</label>
+	<label class="radio-inline">
+  		<input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 4
+	</label>
+	<label class="radio-inline">
+  		<input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 5
+	</label>
+</div>
 
-<br>
-<br>
-Kategorie
-<select>
-  <option>1</option>
-  <option>2</option>
-  <option>3</option>
-  <option>4</option>
-  <option>5</option>
-</select>
+<div>
+Kategorie:
+	<select>
+	<option>1</option>
+	<option>2</option>
+	<option>3</option>
+	<option>4</option>
+	<option>5</option>
+	</select>
 
-<br>
-<br>
+</div>
 
-<p>Wann muss die Aufgabe erledigt sein?</p>
-<input type="date" name="Datum" id="">
+<div>
+	<p>Bis wann muss die Aufgabe erledigt sein?</p>
+	<input type="date" name="Datum" id="">
+</div>
 
-<br>
-<br>
 
-<input type="submit" value="submit">
+<div>
+  <p>Status in %:</p>
+  <input type="number" min="0" max="100"/>
+</div>
+
+
+<div>
+	<input type="submit" value="submit">
+</div>
+
 </form>
 </div>
 

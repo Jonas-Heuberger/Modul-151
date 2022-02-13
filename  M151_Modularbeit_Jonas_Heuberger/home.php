@@ -45,8 +45,8 @@ session_start();
 		<button type="submit" class="btn btn-default">Submit</button>
 	  </form>
 	  <ul class="nav navbar-nav navbar-right">
-		  <li><a href="home.php"><span class="glyphicon glyphicon-home"> Home</span></a></li>
-		<li><a href="#">eingeloggt als: </a></li>
+		  <li><a href="home.php"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+		<li><a href="#">Angemeldet als: </a></li>
 		<li><a href="index.php"> <span class="glyphicon glyphicon-log-out"></span> Ausloggen</a></li>
 	
 	  </ul>

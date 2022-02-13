@@ -44,7 +44,27 @@ session_start();
 		</div>
 		<button type="submit" class="btn btn-default">Submit</button>
 	  </form>
+	  
 	  <ul class="nav navbar-nav navbar-right">
+
+	  <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-menu-hamburger"></span> <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="create.php">Hallo</a></li>
+            <li><a href="admin.php">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+		  
+
+
+
+
+
+
+
 		  <li><a href="home.php"><span class="glyphicon glyphicon-home"></span> Home</a></li>
 		<li><a href="#">Angemeldet als: </a></li>
 		<li><a href="index.php"> <span class="glyphicon glyphicon-log-out"></span> Ausloggen</a></li>

@@ -96,7 +96,8 @@ Kategorie:
 
 
 <div>
-	<input type="submit" value="submit">
+	<span><input type="submit" value="submit"></span>
+	<span><input type="reset" value="löschen"></span>
 </div>
 
 </form>

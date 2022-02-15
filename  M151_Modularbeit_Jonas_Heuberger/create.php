@@ -1,15 +1,78 @@
 <?php
+
+session_start();
+
+
+
+
 // Verbindung zur DB
 include('Include/Administrator_dbconnector.inc.php');
 
 // Initialisierung
 $error = $message =  '';
-$username = $firstname = $lastname = '';
+$aufgabe = $prioritaet = $kategorie = $faellig = $status =  '';
 
+if($_SERVER['REQUEST_METHOD'] == "POST"){
+	if(isset($_POST['aufgabe']) && !empty(trim($_POST['aufgabe'])) && strlen(trim($_POST['aufgabe'])) <= 45){
+		
+		$aufgabe = htmlspecialchars(trim($_POST['aufgabe']));
+	  } else {
+		// Ausgabe Fehlermeldung
+		$error .= "Es gab einen Fehler.<br />";
+	  }
+	  if (isset($_POST['prioritaet']) && empty($_POST['prioritaet'])) {
+		  $prioritaet = htmlspecialchars($_POST['prioritaet']);
+	  } else {
+		  $error .= "Es gab einen Fehler. <br />";
+	  }
 
+	  if(isset($_POST['kategorie']) && !empty($_POST['kategorie'])) {
+		  $kategorie = htmlspecialchars(trim($_POST['kategorie']));
+	  } else  {
+		  $error .= "Es gab einen Fehler <br />";
+	  }
 
+	  if(isset($_POST['faellig']) && !empty($_POST['faellig'])) {
+		  $faellig = htmlspecialchars($_POST['faellig']);
+	  } else {
+		$error .= "Es gab einen Fehler <br />";
+	  }
 
+	  if(isset($_POST['status']) &&!empty($_POST['status'])) {
+		  $status = htmlspecialchars($_POST['status']);
+	  } else {
+		$error .= "Es gab einen Fehler <br />";
+	  }
+}
 
+if(empty($error)){
+    //aufgabe, prioritaet, kategorie, faellig, status
+    $query = "INSERT INTO Todos (prioritaet, kategorie, aufgabe, faellig, status) VALUES (?,?,?,?,?)";
+    // query vorbereiten
+    $stmt = $conn->prepare($query);
+    if($stmt===false){
+      $error .= 'prepare() failed '. $conn->error . '<br />';
+    }
+    // parameter an query binden
+    if(!$stmt->bind_param('isssi', $prioritaet, $kategorie, $aufgabe, $faellig, $status)){
+      $error .= 'bind_param() failed '. $conn->error . '<br />';
+    }
+
+	// query ausführen
+    if(!$stmt->execute()){
+		$error .= 'execute() failed '. $conn->error . '<br />';
+	  }
+	  // kein Fehler!
+	  if(empty($error)){
+		$message .= "Die Daten wurden erfolgreich in die Datenbank geschrieben<br/ >";
+		// felder leeren > oder weiterleitung auf anderes script: z.B. Login!
+		$prioritaet = $kategorie = $aufgabe = $faellig = $status = '';
+		// verbindung schliessen
+		$conn->close();
+		// weiterleiten auf home.php 
+		header('Location: home.php');
+	  }
+	}
 
 
 
@@ -55,24 +118,24 @@ $username = $firstname = $lastname = '';
 <div>
 <p>Priorität:</p>
 	<label class="radio-inline">
-  		<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 1
+  		<input type="radio" name="p_1" id="inlineRadio1" value="option1"> 1
 	</label>
 	<label class="radio-inline">
-  		<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 2
+  		<input type="radio" name="p_2" id="inlineRadio2" value="option2"> 2
 	</label>
 	<label class="radio-inline">
-  		<input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 3
+  		<input type="radio" name="p_3" id="inlineRadio3" value="option3"> 3
 	</label>
 	<label class="radio-inline">
-  		<input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 4
+  		<input type="radio" name="p_4" id="inlineRadio3" value="option3"> 4
 	</label>
 	<label class="radio-inline">
-  		<input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 5
+  		<input type="radio" name="p_5" id="inlineRadio3" value="option3"> 5
 	</label>
 </div>
 
 <div>
-Kategorie:
+<p>Kategorie:</p> 
 	<select>
 	<option>1</option>
 	<option>2</option>
@@ -96,7 +159,7 @@ Kategorie:
 
 
 <div>
-	<span><input type="submit" value="submit"></span>
+	<span><input type="submit" value="senden"></span>
 	<span><input type="reset" value="löschen"></span>
 </div>
 

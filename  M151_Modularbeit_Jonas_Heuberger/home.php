@@ -1,5 +1,11 @@
 <?php
 session_start();
+include('Include/Administrator_dbconnector.inc.php');
+
+if(isset($_SESSION['username']) && !empty($_SESSION['loggedIn'])){
+	$username = $_SESSION['username'];
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -58,15 +64,8 @@ session_start();
           </ul>
         </li>
 		  
-
-
-
-
-
-
-
 		  <li><a href="home.php"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-		<li><a href="#">Angemeldet als: </a></li>
+		<li><a href="#">Angemeldet als: <?php echo $username; ?> </a></li>
 		<li><a href="index.php"> <span class="glyphicon glyphicon-log-out"></span> Ausloggen</a></li>
 	
 	  </ul>
@@ -76,11 +75,11 @@ session_start();
 
 <div class="panel panel-default">
   <!-- Default panel contents -->
-  <div class="panel-heading"> Tasks</div>
+  <div class="panel-heading"> Zu erledigen</div>
 
 
 
-<table class="table ">
+<table class="table">
   <thead>
     <tr>
       <th scope="col">#</th>

@@ -3,7 +3,7 @@ session_start();
 
 if(isset($_SESSION['username']) && !empty($_SESSION['loggedIn'])){
 $username = $_SESSION['username'];
-
+    
  echo "<h1>Guten Tag $username</h1>";
  echo "<h1>Das ist eine Session jaa.</h1>";
 

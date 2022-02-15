@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('Include/Administrator_dbconnector.inc.php');
+include('Include/root_dbconnector.inc.php');
 
 if(isset($_SESSION['username']) && !empty($_SESSION['loggedIn'])){
 	$username = $_SESSION['username'];
@@ -54,7 +54,7 @@ if(isset($_SESSION['username']) && !empty($_SESSION['loggedIn'])){
 	  <ul class="nav navbar-nav navbar-right">
 
 	  <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-menu-hamburger"></span> <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-menu-hamburger"></span><span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="create.php">Hallo</a></li>
             <li><a href="admin.php">Another action</a></li>
@@ -65,7 +65,7 @@ if(isset($_SESSION['username']) && !empty($_SESSION['loggedIn'])){
         </li>
 		  
 		  <li><a href="home.php"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-		<li><a href="#">Angemeldet als: <?php echo $username; ?> </a></li>
+		<li><a href="#">Angemeldet als: <?php echo $username;?></a></li>
 		<li><a href="index.php"> <span class="glyphicon glyphicon-log-out"></span> Ausloggen</a></li>
 	
 	  </ul>

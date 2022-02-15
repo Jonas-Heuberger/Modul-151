@@ -6,7 +6,7 @@ session_start();
 
 
 // Verbindung zur DB
-include('Include/Administrator_dbconnector.inc.php');
+include('Include/root_dbconnector.inc.php');
 
 // Initialisierung
 $error = $message =  '';

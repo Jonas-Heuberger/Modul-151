@@ -37,7 +37,7 @@ if(isset($_SESSION['username']) && !empty($_SESSION['loggedIn'])){
 		<span class="icon-bar"></span>
 		<span class="icon-bar"></span>
 	  </button>
-	 <a class="navbar-brand" href="#"><p>TO-DO</p></a>
+	 <a class="navbar-brand" href="home.php"><p>TO-DO</p></a>
 	</div>
 
 	<!-- Collect the nav links, forms, and other content for toggling -->
@@ -53,36 +53,37 @@ if(isset($_SESSION['username']) && !empty($_SESSION['loggedIn'])){
 	  
 	  <ul class="nav navbar-nav navbar-right">
 		  <li><a href="home.php"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-		<li><a href="create.php"><span class="glyphicon glyphicon-plus"></span> erstellen</a></li>
-		  
+		<li><a href="createCategory.php"><span class="glyphicon glyphicon-plus"></span> Kategorie erstellen</a></li>
 		<li><a href="#">Angemeldet als: <?php echo $username;?></a></li>
-		<li><a href="index.php"> <span class="glyphicon glyphicon-log-out"></span> Ausloggen</a></li>
+		<li><a href="index.php"><span class="glyphicon glyphicon-log-out"></span> Ausloggen</a></li>
 	  </ul>
 	</div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 
+
+
+
+
 <div class="panel panel-default">
   <!-- Default panel contents -->
-  <div class="panel-heading"> Zu erledigen</div>
-
-
-
+<div class="panel-heading">
+  <a href="createTodo.php"><span class="glyphicon glyphicon-plus"></span> Aufgabe erstellen</a>
+</div>
+<div>
 <table class="table">
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Prioritaet</th>
+      <th scope="col">Priorität</th>
       <th scope="col">Kategorie</th>
       <th scope="col">Aufgabe</th>
 	  <th scope="col">erstellt</th>
 	  <th scope="col">fällig</th>
-	  <th scope="col">status</th>
-	  <th scope="col">archiv</th>
+	  <th scope="col">Status</th>
+	  <th scope="col">archivieren</th>
 	  <th scope="col">bearbeiten</th>
 	  <th scope="col">löschen</th>
-
-	  
     </tr>
   </thead>
   <tbody>
@@ -110,7 +111,7 @@ if(isset($_SESSION['username']) && !empty($_SESSION['loggedIn'])){
   </tbody>
 
 </table>
-
+</div>
 
 	
 

@@ -37,7 +37,7 @@ if(isset($_SESSION['username']) && !empty($_SESSION['loggedIn'])){
 		<span class="icon-bar"></span>
 		<span class="icon-bar"></span>
 	  </button>
-	  <a class="navbar-brand" href="#"><p>TO-DO</p></a>
+	 <a class="navbar-brand" href="#"><p>TO-DO</p></a>
 	</div>
 
 	<!-- Collect the nav links, forms, and other content for toggling -->
@@ -52,22 +52,11 @@ if(isset($_SESSION['username']) && !empty($_SESSION['loggedIn'])){
 	  </form>
 	  
 	  <ul class="nav navbar-nav navbar-right">
-
-	  <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-menu-hamburger"></span><span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="create.php">Hallo</a></li>
-            <li><a href="admin.php">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
-        </li>
-		  
 		  <li><a href="home.php"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+		<li><a href="create.php"><span class="glyphicon glyphicon-plus"></span> erstellen</a></li>
+		  
 		<li><a href="#">Angemeldet als: <?php echo $username;?></a></li>
 		<li><a href="index.php"> <span class="glyphicon glyphicon-log-out"></span> Ausloggen</a></li>
-	
 	  </ul>
 	</div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -87,32 +76,37 @@ if(isset($_SESSION['username']) && !empty($_SESSION['loggedIn'])){
       <th scope="col">Kategorie</th>
       <th scope="col">Aufgabe</th>
 	  <th scope="col">erstellt</th>
-	  <th scope="col">faellig</th>
+	  <th scope="col">fällig</th>
 	  <th scope="col">status</th>
 	  <th scope="col">archiv</th>
+	  <th scope="col">bearbeiten</th>
+	  <th scope="col">löschen</th>
 
-	  <th scope="col"></th>
+	  
     </tr>
   </thead>
   <tbody>
     <tr>
       <th scope="row">1</th>
-      <td>Sit</td>
-      <td>Amet</td>
-      <td>Consectetur</td>
+      <td></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <th scope="row">2</th>
-      <td>Adipisicing</td>
-      <td>Elit</td>
-      <td>Sint</td>
+      <td></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <th scope="row">3</th>
-      <td>Hic</td>
-      <td>Fugiat</td>
-      <td>Temporibus</td>
+      <td></td>
+      <td></td>
+      <td></td>
     </tr>
+	<tr>
+		<th scope="row">4</th>
+	</tr>
   </tbody>
 
 </table>

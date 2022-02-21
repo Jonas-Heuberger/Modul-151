@@ -101,9 +101,64 @@ if(empty($error)){
 	<title>Erstellen</title>
 </head>
 <body>
-<div class="create">
+
 
 <!-- Navbar -->
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Brand</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-left">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
 
 <div>
 <h1>Aufgabe</h1>
@@ -111,60 +166,65 @@ if(empty($error)){
 
 <div>
 <form action="" method="post">
-	<p>Aufgabe:</p>
-<textarea name="" id="" cols="50" rows="3"></textarea>
+	<h3>Aufgabe:</h3>
+
+	<input type="text" class="form-control" placeholder="Beschreibung">
 </div>
 
 <div>
-<p>Priorität:</p>
-	<label class="radio-inline">
-  		<input type="radio" name="p_1" id="inlineRadio1" value="option1"> 1
-	</label>
-	<label class="radio-inline">
-  		<input type="radio" name="p_2" id="inlineRadio2" value="option2"> 2
-	</label>
-	<label class="radio-inline">
-  		<input type="radio" name="p_3" id="inlineRadio3" value="option3"> 3
-	</label>
-	<label class="radio-inline">
-  		<input type="radio" name="p_4" id="inlineRadio3" value="option3"> 4
-	</label>
-	<label class="radio-inline">
-  		<input type="radio" name="p_5" id="inlineRadio3" value="option3"> 5
-	</label>
-</div>
+<h3>Priorität:</h3>
 
-<div>
-<p>Kategorie:</p> 
-	<select>
-	<option>1</option>
-	<option>2</option>
-	<option>3</option>
-	<option>4</option>
-	<option>5</option>
-	</select>
+
+
+<label class="radio-inline">
+  <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 1
+</label>
+<label class="radio-inline">
+  <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 2
+</label>
+<label class="radio-inline">
+  <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 3
+</label>
+<label class="radio-inline">
+  <input type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4"> 4
+</label>
+<label class="radio-inline">
+  <input type="radio" name="inlineRadioOptions" id="inlineRadio5" value="option5"> 5
+</label>
 
 </div>
 
 <div>
-	<p>Bis wann muss die Aufgabe erledigt sein?</p>
+<h3>Kategorie:</h3> 
+<select class="form-control">
+  <option>1</option>
+  <option>2</option>
+  <option>3</option>
+  <option>4</option>
+  <option>5</option>
+</select>
+
+</div>
+
+<div>
+	<h3>Bis wann muss die Aufgabe erledigt sein?</h3>
 	<input type="date" name="Datum" id="">
 </div>
 
 
 <div>
-  <p>Status in %:</p>
-  <input type="number" min="0" max="100"/>
+  <h3>Status in %:</h3>
+  <input type="number" class="form-control" min="0" max="100" placeholder="Status in %">
 </div>
 
 
 <div>
-	<span><input type="submit" value="senden"></span>
-	<span><input type="reset" value="löschen"></span>
+<input class="btn btn-default" type="submit" value="Senden">
+<input class="btn btn-default" type="reset" value="löschen">
 </div>
 
 </form>
-</div>
+
 
 
 

@@ -196,7 +196,6 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         </div>
         <button type="submit" name="button" value="submit" class="btn btn-info">Submit</button>
         <button type="reset" name="button" value="reset" class="btn btn-warning">Clear</button>
-        <a href="login.php" class="btn btn-link" role="button">Login</a> <!-- Button link -->
       </form>
     </div>
 

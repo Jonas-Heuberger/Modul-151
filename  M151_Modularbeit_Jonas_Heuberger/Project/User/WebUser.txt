@@ -4,4 +4,10 @@ Benutzername: JonasH
 Passwort: h5ng9SU6w{/!69U$
 Admin: Nein
 
+Vorname: Administrator
+Nachname: Administrator
+Benutzername: Administrator
+Passwort: s$cbpbY"}5s.,{~w
+Admin: Ja
+
 	

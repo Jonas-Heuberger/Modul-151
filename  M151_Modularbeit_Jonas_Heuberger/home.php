@@ -53,7 +53,7 @@ if(isset($_SESSION['username']) && !empty($_SESSION['loggedIn'])){
 	  
 	  <ul class="nav navbar-nav navbar-right">
 		  <li><a href="home.php"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-		<li><a href="createCategory.php"><span class="glyphicon glyphicon-plus"></span> Kategorie erstellen</a></li>
+		  <li><a href="archiv.php"><span class="glyphicon glyphicon-folder-open"></span> Archiv</a></li>
 		<li><a href="#">Angemeldet als: <?php echo $username;?></a></li>
 		<li><a href="index.php"><span class="glyphicon glyphicon-log-out"></span> Ausloggen</a></li>
 	  </ul>

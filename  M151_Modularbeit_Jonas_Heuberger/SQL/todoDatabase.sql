@@ -133,3 +133,4 @@ ALTER TABLE Todos
 MODIFY COLUMN prioritaet TINYINT(5) NOT NULL;
                         
   
+UPDATE Users SET role = 1 WHERE idUsers = 12;

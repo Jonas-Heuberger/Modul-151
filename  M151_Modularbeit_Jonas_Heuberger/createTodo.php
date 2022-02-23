@@ -2,11 +2,12 @@
 
 session_start();
 
-
-
-
 // Verbindung zur DB
 include('Include/root_dbconnector.inc.php');
+
+if(isset($_SESSION['username']) && !empty($_SESSION['loggedIn'])){
+	$username = $_SESSION['username'];
+}
 
 // Initialisierung
 $error = $message =  '';
@@ -146,7 +147,7 @@ if(empty($error)){
 <form action="" method="post">
 	<h3>Aufgabe:</h3>
 
-	<input type="text" class="form-control" placeholder="Beschreibung">
+	<input type="text" class="form-control" placeholder="Beschreibung" required>
 </div>
 
 <div>
@@ -154,7 +155,7 @@ if(empty($error)){
 
 
 
-<label class="radio-inline">
+<label class="radio-inline" required>
   <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 1
 </label>
 <label class="radio-inline">
@@ -174,7 +175,7 @@ if(empty($error)){
 
 <div>
 <h3>Kategorie:</h3> 
-<select class="form-control">
+<select class="form-control" required>
   <option>1</option>
   <option>2</option>
   <option>3</option>
@@ -186,13 +187,13 @@ if(empty($error)){
 
 <div>
 	<h3>Bis wann muss die Aufgabe erledigt sein?</h3>
-	<input type="date" name="Datum" id="">
+	<input type="date" name="Datum" id="" required>
 </div>
 
 
 <div>
   <h3>Status in %:</h3>
-  <input type="number" class="form-control" min="0" max="100" placeholder="Status in %">
+  <input type="number" class="form-control" min="0" max="100" placeholder="Status in %" required>
 </div>
 
 

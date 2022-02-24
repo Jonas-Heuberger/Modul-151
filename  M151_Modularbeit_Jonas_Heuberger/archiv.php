@@ -1,10 +1,20 @@
+
+<?php 
+session_start();
+include('Include/root_dbconnector.inc.php');
+
+
+if(isset($_SESSION['username']) && !empty($_SESSION['loggedIn'])){
+	$username = $_SESSION['username'];
+}?>
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<title>Archiv</title>
 </head>
 <body>
 	<!-- Navbar -->

@@ -1,5 +1,7 @@
 <?php
 
+
+
 //Datenbankverbindung
 include('Include/root_dbconnector.inc.php');
 

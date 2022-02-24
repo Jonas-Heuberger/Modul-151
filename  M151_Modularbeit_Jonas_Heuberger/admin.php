@@ -1,20 +1,4 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
-
-<link rel="stylesheet" href="CSS/style.css">
-	<title>Bearbeiten</title>
-</head>
-<body>
 <?php
 session_start();
 include('Include/root_dbconnector.inc.php');
@@ -39,7 +23,7 @@ if(isset($_SESSION['username']) && !empty($_SESSION['loggedIn'])){
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
 
 <link rel="stylesheet" href="CSS/style.css">
-	<title>Home</title>
+	<title>Admin</title>
 </head>
 <body>
 
@@ -69,8 +53,8 @@ if(isset($_SESSION['username']) && !empty($_SESSION['loggedIn'])){
 	  </form>
 	  
 	  <ul class="nav navbar-nav navbar-right">
-		  <li><a href="home.php"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-		  <li><a href="archiv.php"><span class="glyphicon glyphicon-folder-open"></span> Archiv</a></li>
+		  <li><a href="admin.php"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+		  <li><a href="createCategory.php"><span class="glyphicon glyphicon-plus"></span> Kategorie erstellen</a></li>
 		<li><a href="#">Angemeldet als: <?php echo $username;?></a></li>
 		<li><a href="index.php"><span class="glyphicon glyphicon-log-out"></span> Ausloggen</a></li>
 	  </ul>
@@ -85,7 +69,7 @@ if(isset($_SESSION['username']) && !empty($_SESSION['loggedIn'])){
 <div class="panel panel-default">
   <!-- Default panel contents -->
 <div class="panel-heading">
-  <a href="createTodo.php"><span class="glyphicon glyphicon-plus"></span> Aufgabe erstellen</a>
+  <a href="createUser.php"><span class="glyphicon glyphicon-plus"></span> Benutzer erstellen</a>
 </div>
 <div>
 <table class="table">

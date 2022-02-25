@@ -57,12 +57,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && empty($error)){
 			$row = $result->fetch_assoc();
 			// passwort prüfen
 
-			if(password_verify($password, $row['password'])){
+			if(password_verify($password, $row['password'] && $row['role'] == 1)){
 				$message .= "Sie sind nun eingeloggt";
 				session_start();
 				session_regenerate_id();
 				$_SESSION['username'] = $username;
-				$_SESSION['role'] = 1;
+				//$_SESSION['role'] = 1;
 				$_SESSION['loggedIn'] = true;
 				header('Location: admin.php');
 			// benutzername oder passwort stimmen nicht,

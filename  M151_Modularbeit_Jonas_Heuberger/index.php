@@ -1,7 +1,5 @@
 <?php
 
-
-
 //Datenbankverbindung
 include('Include/root_dbconnector.inc.php');
 
@@ -68,6 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && empty($error)){
 				$_SESSION['loggedIn'] = true;
 				header('Location: admin.php');
 			// benutzername oder passwort stimmen nicht,
+			
 			}
 			elseif(password_verify($password, $row['password'])){
 				$message .= "Sie sind nun eingeloggt";
@@ -75,6 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && empty($error)){
 				session_regenerate_id();
 				$_SESSION['username'] = $username;
 				$_SESSION['loggedIn'] = true;
+				$_SESSION['role'] = 0;
 				header('Location: home.php');
 			// benutzername oder passwort stimmen nicht,
 			}else{

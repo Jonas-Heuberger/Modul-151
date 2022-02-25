@@ -7,7 +7,7 @@ include('Include/root_dbconnector.inc.php');
 if(isset($_SESSION['username']) && !empty($_SESSION['loggedIn'])){
 	$username = $_SESSION['username'];
 
-
+	
 }?>
 
 <!DOCTYPE html>

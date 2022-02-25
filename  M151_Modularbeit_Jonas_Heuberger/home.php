@@ -14,7 +14,7 @@ if(isset($_SESSION['username']) && !empty($_SESSION['loggedIn'])){
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
+
 	<!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
 
@@ -71,47 +71,33 @@ if(isset($_SESSION['username']) && !empty($_SESSION['loggedIn'])){
   <a href="createTodo.php"><span class="glyphicon glyphicon-plus"></span> Aufgabe erstellen</a>
 </div>
 <div>
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Priorität</th>
-      <th scope="col">Kategorie</th>
-      <th scope="col">Aufgabe</th>
-	  <th scope="col">erstellt</th>
-	  <th scope="col">fällig</th>
-	  <th scope="col">Status</th>
-	  <th scope="col">archivieren</th>
-	  <th scope="col">bearbeiten</th>
-	  <th scope="col">löschen</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-	<tr>
-		<th scope="row">4</th>
-	</tr>
-  </tbody>
 
-</table>
-</div>
+<?php
+$sql = "SELECT * FROM Todos WHERE archiv = 0";
+$result = $conn->query($sql);
+
+
+if ($result->num_rows > 0) {
+  echo "<table class='table'><tr><th>Priorität</th><th>Kategorie</th><th>Aufgabe</th><th>erstellt</th><th>fällig</th><th>status</th><th>archivieren</th><th>bearbeiten</th><th>löschen</th></tr>";
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+	  $status = $row['status'];
+    echo "<tr><td>".$row["prioritaet"]."</td><td>".$row["kategorie"]."</td><td>".$row['aufgabe']."</td><td>".$row['erstellt']."</td><td>".$row['faellig']."</td><td><span class='progress'>
+	<span class='progress-bar' role='progressbar' aria-valuenow='60' aria-valuemin='0' aria-valuemax='100' style='width: 60%;'>
+	". $status . "%
+	</span>
+	</span></td><td class='glyphicon glyphicon-folder-open'></td><td class='glyphicon glyphicon-pencil'></td><td class='glyphicon glyphicon-trash'></tr>";
+  }
+  echo "</table>";
+} else {
+  echo "0 results";
+}
+$conn->close();
+
+
+
+?>
+
 
 	
 

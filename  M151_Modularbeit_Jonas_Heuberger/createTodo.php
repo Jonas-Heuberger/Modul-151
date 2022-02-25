@@ -153,8 +153,6 @@ if(empty($error)){
 <div>
 <h3>Priorität:</h3>
 
-
-
 <label class="radio-inline" required>
   <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 1
 </label>
@@ -175,6 +173,37 @@ if(empty($error)){
 
 <div>
 <h3>Kategorie:</h3> 
+
+<?php
+
+$sql = "SELECT name FROM Kategorien";
+$kategorien = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+  echo "<table><tr><th>ID</th><th>Name</th></tr>";
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+	  echo "<select name='categoryname class='form-control' required>";
+    echo "<tr><td>".$row["name"]."</td><td>".$row["firstname"]." ".$row["lastname"]."</td></tr>";
+	
+  }
+  echo "</table>";
+}
+
+
+$query_category = "SELECT name from Kategorien where name = ?";
+$result = $conn->query($query_category);
+
+echo "<select name='kategorie' id='kategorie' class='form-control' required>";
+                foreach ($kategorien as $kategorie) {
+                    $kategorie_id = $kategorie['tbl_kategorien_kategorie_id'];
+                    $kategories = $kategorie['kategorie'];
+                echo "<option value='$kategorie_id' class='form-control'>$kategories</option>";
+}
+echo "</select>";
+
+?>
+
 <select class="form-control" required>
   <option>1</option>
   <option>2</option>

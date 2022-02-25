@@ -7,6 +7,8 @@ if(isset($_SESSION['username']) && !empty($_SESSION['loggedIn'])){
 
 }
 
+
+
 if(isset($_GET['archivieren']) && isset($_GET['id']))
 
 
@@ -91,7 +93,7 @@ if ($result->num_rows > 0) {
 	<div class='progress-bar' role='progressbar' aria-valuenow='60' aria-valuemin='0' aria-valuemax='100' style='width: 60%;'>
 	  ".$status." %
 	</div>
-  </div></td><td> <button type='button' class='glyphicon glyphicon-folder-open' name='archivieren'></button></td><td ><a href='' class='glyphicon glyphicon-pencil' name='bearbeiten'></a></td><td ><button class='glyphicon glyphicon-trash' name='löschen'></button></tr>";
+  </div></td><td> <a href='' class='glyphicon glyphicon-folder-open' name='archivieren'></a></td><td ><a href='' class='glyphicon glyphicon-pencil' name='bearbeiten'></a></td><td ><a class='glyphicon glyphicon-trash' name='löschen'></a></tr>";
   }
   echo "</table>";
 } else {

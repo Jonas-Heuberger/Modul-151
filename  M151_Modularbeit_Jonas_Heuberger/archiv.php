@@ -15,6 +15,12 @@ if(isset($_SESSION['username']) && !empty($_SESSION['loggedIn'])){
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Archiv</title>
+
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
 </head>
 <body>
 	<!-- Navbar -->
@@ -51,5 +57,34 @@ if(isset($_SESSION['username']) && !empty($_SESSION['loggedIn'])){
 	</div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+
+<?php
+$sql = "SELECT * FROM Todos WHERE archiv = 1";
+$result = $conn->query($sql);
+
+
+if ($result->num_rows > 0) {
+  echo "<table class='table'><tr><th>Priorität</th><th>Kategorie</th><th>Aufgabe</th><th>erstellt</th><th>fällig</th><th>status</th><th>archivieren</th><th>bearbeiten</th><th>löschen</th></tr>";
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+	  $status = $row['status'];
+    echo "<tr><td>".$row["prioritaet"]."</td><td>".$row["kategorie"]."</td><td>".$row['aufgabe']."</td><td>".$row['erstellt']."</td><td>".$row['faellig']."</td><td><span class='progress'>
+	<span class='progress-bar' role='progressbar' aria-valuenow='60' aria-valuemin='0' aria-valuemax='100' style='width: 60%;'>
+	". $status . "%
+	</span>
+	</span></td><td class='glyphicon glyphicon-folder-open'></td><td class='glyphicon glyphicon-pencil'></td><td class='glyphicon glyphicon-trash'></tr>";
+  }
+  echo "</table>";
+} else {
+  echo "0 results";
+}
+$conn->close();
+
+
+
+?>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
 </body>
 </html>

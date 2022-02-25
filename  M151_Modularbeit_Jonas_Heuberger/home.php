@@ -4,7 +4,12 @@ include('Include/root_dbconnector.inc.php');
 
 if(isset($_SESSION['username']) && !empty($_SESSION['loggedIn'])){
 	$username = $_SESSION['username'];
+
 }
+
+if(isset($_GET['archivieren']) && isset($_GET['id']))
+
+
 
 ?>
 
@@ -86,7 +91,7 @@ if ($result->num_rows > 0) {
 	<div class='progress-bar' role='progressbar' aria-valuenow='60' aria-valuemin='0' aria-valuemax='100' style='width: 60%;'>
 	  ".$status." %
 	</div>
-  </div></td><td><span class='glyphicon glyphicon-folder-open'><p> archivieren</p></span></td><td class='glyphicon glyphicon-pencil'>bearbeiten</td><td class='glyphicon glyphicon-trash'></tr>";
+  </div></td><td> <button type='button' class='glyphicon glyphicon-folder-open' name='archivieren'></button></td><td ><a href='' class='glyphicon glyphicon-pencil' name='bearbeiten'></a></td><td ><button class='glyphicon glyphicon-trash' name='löschen'></button></tr>";
   }
   echo "</table>";
 } else {

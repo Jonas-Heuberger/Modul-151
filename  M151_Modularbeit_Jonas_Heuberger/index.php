@@ -55,27 +55,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && empty($error)){
 		if($result->num_rows){
 			// userdaten lesen
 			$row = $result->fetch_assoc();
-			// passwort prüfen
-
-			if(password_verify($password, $row['password'] && $row['role'] == 1)){
+			// Passwort prüfen und Role überprüfen
+			if($row['role'] == 1){
+			if(password_verify($password, $row['password'])){
 				$message .= "Sie sind nun eingeloggt";
 				session_start();
 				session_regenerate_id();
 				$_SESSION['username'] = $username;
 				$_SESSION['loggedIn'] = true;
 				header('Location: admin.php');
-			// benutzername oder passwort stimmen nicht,
-			
 			}
-			elseif(password_verify($password, $row['password'])){
+			// benutzername oder passwort stimmen nicht,
+			}elseif(password_verify($password, $row['password'])){
 				$message .= "Sie sind nun eingeloggt";
 				session_start();
 				session_regenerate_id();
 				$_SESSION['username'] = $username;
 				$_SESSION['loggedIn'] = true;
 				header('Location: home.php');
-			// benutzername oder passwort stimmen nicht,
-			}else{
+			}
+			
+			else{
 				$error .= "Benutzername oder Passwort ist falsch";
 			} 
 		}

@@ -72,47 +72,28 @@ if(isset($_SESSION['username']) && !empty($_SESSION['loggedIn'])){
   <a href="createUser.php"><span class="glyphicon glyphicon-plus"></span> Benutzer erstellen</a>
 </div>
 <div>
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Priorität</th>
-      <th scope="col">Kategorie</th>
-      <th scope="col">Aufgabe</th>
-	  <th scope="col">erstellt</th>
-	  <th scope="col">fällig</th>
-	  <th scope="col">Status</th>
-	  <th scope="col">archivieren</th>
-	  <th scope="col">bearbeiten</th>
-	  <th scope="col">löschen</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-	<tr>
-		<th scope="row">4</th>
-	</tr>
-  </tbody>
 
-</table>
-</div>
+<?php
+$sql = "SELECT * FROM Users WHERE role = 0;";
+$result = $conn->query($sql);
+
+
+if ($result->num_rows > 0) {
+  echo "<table class='table'><tr><th>Benutzername</th><th>Vorname</th><th>Nachname</th></tr>";
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+    echo "<tr><td>".$row["username"]."</td><td>".$row["firstname"]."</td><td>".$row['lastname']."</td><td class='glyphicon glyphicon-pencil'></td><td class='glyphicon glyphicon-trash'></tr>";
+  }
+  echo "</table>";
+} else {
+  echo "0 results";
+}
+$conn->close();
+
+
+
+?>
+
 
 	
 

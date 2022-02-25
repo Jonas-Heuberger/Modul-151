@@ -8,6 +8,9 @@ include('Include/root_dbconnector.inc.php');
 if(isset($_SESSION['username']) && !empty($_SESSION['loggedIn'])){
 	$username = $_SESSION['username'];
 }
+if(isset($_SESSION['idUsers']) && !empty($_SESSION['loggedIn'])){
+	$idUsers = $_SESSION['idUsers'];
+}
 
 // Initialisierung
 $error = $message =  '';
@@ -131,7 +134,7 @@ if(empty($error)){
 	  <ul class="nav navbar-nav navbar-right">
 		  <li><a href="home.php"><span class="glyphicon glyphicon-home"></span> Home</a></li>
 		  <li><a href="archiv.php"><span class="glyphicon glyphicon-folder-open"></span> Archiv</a></li>
-		<li><a href="#">Angemeldet als: <?php echo $username;?></a></li>
+		<li><a href="#">Angemeldet als: <?php echo $username; echo $idUsers; ?></a></li>
 		<li><a href="index.php"><span class="glyphicon glyphicon-log-out"></span> Ausloggen</a></li>
 	  </ul>
 	</div><!-- /.navbar-collapse -->
@@ -176,41 +179,20 @@ if(empty($error)){
 
 <?php
 
-$sql = "SELECT name FROM Kategorien";
-$kategorien = $conn->query($sql);
+$sql = "SELECT * FROM Kategorien";
+$result = $conn->query($sql);
 
+$name = $row['name'];
 if ($result->num_rows > 0) {
-  echo "<table><tr><th>ID</th><th>Name</th></tr>";
-  // output data of each row
-  while($row = $result->fetch_assoc()) {
-	  echo "<select name='categoryname class='form-control' required>";
-    echo "<tr><td>".$row["name"]."</td><td>".$row["firstname"]." ".$row["lastname"]."</td></tr>";
-	
-  }
-  echo "</table>";
-}
-
-
-$query_category = "SELECT name from Kategorien where name = ?";
-$result = $conn->query($query_category);
-
-echo "<select name='kategorie' id='kategorie' class='form-control' required>";
-                foreach ($kategorien as $kategorie) {
-                    $kategorie_id = $kategorie['tbl_kategorien_kategorie_id'];
-                    $kategories = $kategorie['kategorie'];
-                echo "<option value='$kategorie_id' class='form-control'>$kategories</option>";
+echo "<select name='kategorie' id='name' class='form-control' required>";
+                while ($row = $result->fetch_assoc()) {
+                echo "<option value='$name' class='form-control'>$name</option>";
 }
 echo "</select>";
-
+}
 ?>
 
-<select class="form-control" required>
-  <option>1</option>
-  <option>2</option>
-  <option>3</option>
-  <option>4</option>
-  <option>5</option>
-</select>
+
 
 </div>
 

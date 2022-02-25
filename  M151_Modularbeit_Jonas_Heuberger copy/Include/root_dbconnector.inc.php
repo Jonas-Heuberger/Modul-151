@@ -1,7 +1,7 @@
 <?php
 		$host     = 'localhost'; // host
-		$username = 'Benutzer'; // username
-		$password = '\(7/ep9~=?HmU8BH'; // Passwort 
+		$username = 'root'; // username
+		$password = ''; // Passwort 
 		$database = 'todoDatabase'; // database
 		
 		// mit Datenbank verbinden

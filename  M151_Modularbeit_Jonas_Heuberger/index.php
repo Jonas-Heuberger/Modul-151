@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && empty($error)){
 	// kein fehler
 	if(empty($error)){
 		// query
-		$query = "SELECT username, password from users where username = ?";
+		$query = "SELECT username, password, role from Users where username = ?";
 		// query vorbereiten
 		$stmt = $conn->prepare($query);
 		if($stmt===false){
@@ -79,7 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && empty($error)){
 			// benutzername oder passwort stimmen nicht,
 			}else{
 				$error .= "Benutzername oder Passwort ist falsch";
-			}
+			} 
 		}
 	}
 }

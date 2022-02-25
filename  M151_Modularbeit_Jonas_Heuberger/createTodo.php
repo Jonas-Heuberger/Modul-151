@@ -179,17 +179,21 @@ if(empty($error)){
 
 <?php
 
+
 $sql = "SELECT * FROM Kategorien";
 $result = $conn->query($sql);
 
-$name = $row['name'];
 if ($result->num_rows > 0) {
-echo "<select name='kategorie' id='name' class='form-control' required>";
-                while ($row = $result->fetch_assoc()) {
-                echo "<option value='$name' class='form-control'>$name</option>";
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+    echo "<select class='form-control' required>";
+	echo "<option>".$row['name']."</option>";
+  }
+} else {
+  echo "0 results";
 }
-echo "</select>";
-}
+$conn->close();
+
 ?>
 
 

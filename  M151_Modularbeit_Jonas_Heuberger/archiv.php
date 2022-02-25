@@ -68,11 +68,10 @@ if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
 	  $status = $row['status'];
-    echo "<tr><td>".$row["prioritaet"]."</td><td>".$row["kategorie"]."</td><td>".$row['aufgabe']."</td><td>".$row['erstellt']."</td><td>".$row['faellig']."</td><td><span class='progress'>
-	<span class='progress-bar' role='progressbar' aria-valuenow='60' aria-valuemin='0' aria-valuemax='100' style='width: 60%;'>
-	". $status . "%
-	</span>
-	</span></td><td class='glyphicon glyphicon-folder-open'></td><td class='glyphicon glyphicon-pencil'></td><td class='glyphicon glyphicon-trash'></tr>";
+    echo "<tr><td>".$row["prioritaet"]."</td><td>".$row["kategorie"]."</td><td>".$row['aufgabe']."</td><td>".$row['erstellt']."</td><td>".$row['faellig']."</td><td><div class='progress'>
+	<div class='progress-bar' role='progressbar' aria-valuenow='60' aria-valuemin='0' aria-valuemax='100' style='width: 60%;'>
+	  ".$status." %
+	</div></td><td class='glyphicon glyphicon-folder-open'></td><td class='glyphicon glyphicon-pencil'></td><td class='glyphicon glyphicon-trash'></tr>";
   }
   echo "</table>";
 } else {

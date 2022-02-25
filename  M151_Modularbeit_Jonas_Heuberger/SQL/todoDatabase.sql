@@ -134,3 +134,5 @@ MODIFY COLUMN prioritaet TINYINT(5) NOT NULL;
                         
   
 UPDATE Users SET role = 1 WHERE idUsers = 12;
+
+INSERT INTO Todos (prioritaet, kategorie, aufgabe, faellig, status, archiv, Users_idUsers, Kategorien_idKategorien) VALUES (1,'Schule', 'Socken waschen', '2022-12-17', 20, 0, 1, 1);

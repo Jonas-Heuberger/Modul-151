@@ -8,9 +8,7 @@ include('Include/root_dbconnector.inc.php');
 if(isset($_SESSION['username']) && !empty($_SESSION['loggedIn'])){
 	$username = $_SESSION['username'];
 }
-if(isset($_SESSION['idUsers']) && !empty($_SESSION['loggedIn'])){
-	$idUsers = $_SESSION['idUsers'];
-}
+
 
 // Initialisierung
 $error = $message =  '';
@@ -47,18 +45,24 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 	  } else {
 		$error .= "Es gab einen Fehler <br />";
 	  }
+
+	  $Users_idUsers = $_SESSION['username'];
+
+	  $Kategorien_idKategorien = 1;
+
+	  
 }
 
 if(empty($error)){
     //aufgabe, prioritaet, kategorie, faellig, status
-    $query = "INSERT INTO Todos (prioritaet, kategorie, aufgabe, faellig, status) VALUES (?,?,?,?,?)";
+    $query = "INSERT INTO Todos (prioritaet, kategorie, aufgabe, faellig, status, Users_idUsers, Kategorien_idKategorien) VALUES (?,?,?,?,?,?,?)";
     // query vorbereiten
     $stmt = $conn->prepare($query);
     if($stmt===false){
       $error .= 'prepare() failed '. $conn->error . '<br />';
     }
     // parameter an query binden
-    if(!$stmt->bind_param('isssi', $prioritaet, $kategorie, $aufgabe, $faellig, $status)){
+    if(!$stmt->bind_param('isssiii', $prioritaet, $kategorie, $aufgabe, $faellig, $status, $Users_idUsers, $Kategorien_idKategorien)){
       $error .= 'bind_param() failed '. $conn->error . '<br />';
     }
 
@@ -70,7 +74,7 @@ if(empty($error)){
 	  if(empty($error)){
 		$message .= "Die Daten wurden erfolgreich in die Datenbank geschrieben<br/ >";
 		// felder leeren > oder weiterleitung auf anderes script: z.B. Login!
-		$prioritaet = $kategorie = $aufgabe = $faellig = $status = '';
+		$prioritaet = $kategorie = $aufgabe = $faellig = $status = $Users_idUsers = $Kategorien_idKategorien ='';
 		// verbindung schliessen
 		$conn->close();
 		// weiterleiten auf home.php 
@@ -134,7 +138,7 @@ if(empty($error)){
 	  <ul class="nav navbar-nav navbar-right">
 		  <li><a href="home.php"><span class="glyphicon glyphicon-home"></span> Home</a></li>
 		  <li><a href="archiv.php"><span class="glyphicon glyphicon-folder-open"></span> Archiv</a></li>
-		<li><a href="#">Angemeldet als: <?php echo $username; echo $idUsers; ?></a></li>
+		<li><a href="#">Angemeldet als: <?php echo $username; ?></a></li>
 		<li><a href="index.php"><span class="glyphicon glyphicon-log-out"></span> Ausloggen</a></li>
 	  </ul>
 	</div><!-- /.navbar-collapse -->

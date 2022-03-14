@@ -1,8 +1,10 @@
 
 <?php
+
 session_start();
 include('Include/root_dbconnector.inc.php');
 
+// 
 if(isset($_SESSION['username']) && !empty($_SESSION['loggedIn'])){
 	$username = $_SESSION['username'];
 }
@@ -73,11 +75,13 @@ if(isset($_SESSION['username']) && !empty($_SESSION['loggedIn'])){
 </div>
 <div>
 
+
 <?php
+// SQL Abfrage um alle User anzuzeigen
 $sql = "SELECT * FROM Users WHERE role = 0;";
 $result = $conn->query($sql);
 
-
+// wenn Es User gibt zeige diese an
 if ($result->num_rows > 0) {
   echo "<table class='table'><tr><th>Benutzername</th><th>Vorname</th><th>Nachname</th></tr>";
   // output data of each row
@@ -85,6 +89,7 @@ if ($result->num_rows > 0) {
     echo "<tr><td>".$row["username"]."</td><td>".$row["firstname"]."</td><td>".$row['lastname']."</td><td class='glyphicon glyphicon-pencil'></td><td class='glyphicon glyphicon-trash'></tr>";
   }
   echo "</table>";
+//   sonst gebe 0 results aus
 } else {
   echo "0 results";
 }

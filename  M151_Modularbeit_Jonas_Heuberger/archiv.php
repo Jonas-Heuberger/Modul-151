@@ -61,10 +61,12 @@ if(isset($_SESSION['username']) && !empty($_SESSION['loggedIn'])){
 </nav>
 
 <?php
+// SQL Abfrage um alle Todos anzuzeigen die archiviert sind
 $sql = "SELECT * FROM Todos WHERE archiv = 1";
+// Verbindung zur Datenbank herstellen
 $result = $conn->query($sql);
 
-
+// Wenn es mehr als 0 Todos gibt zeige diese an
 if ($result->num_rows > 0) {
   echo "<table class='table'><tr><th>Priorität</th><th>Kategorie</th><th>Aufgabe</th><th>erstellt</th><th>fällig</th><th>status</th><th>archivieren</th><th>bearbeiten</th><th>löschen</th></tr>";
   // output data of each row
@@ -76,9 +78,11 @@ if ($result->num_rows > 0) {
 	</div></td><td class='glyphicon glyphicon-folder-open'></td><td class='glyphicon glyphicon-pencil'></td><td class='glyphicon glyphicon-trash'></tr>";
   }
   echo "</table>";
+//   sonst schreibe 0 results
 } else {
   echo "0 results";
 }
+// schliesse die Verbindung
 $conn->close();
 
 
